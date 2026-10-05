@@ -77,12 +77,54 @@ intentional decisions and do not repeat failed attempts without new evidence.
 - Only available session history and accessible repository evidence can be reconstructed. Missing history and stale verification are identified explicitly.
 - Generating a handoff does not automatically reset the context or open another session. The current turn ends after reporting the written file.
 
-### Repository layout
+## ASD-STE100 Writing
+
+[`asd-ste100`](asd-ste100/SKILL.md) writes or revises English with up to 80 percent ASD-STE100-inspired Simplified Technical English. Use it for replies, explanations, documentation, and other prose when you want clear technical writing with room for natural phrasing.
+
+The 80 percent target is a flexible style preference, not a measured compliance score. The skill favors short sentences, direct instructions, active voice, and consistent terms. It preserves meaning, qualifications, necessary detail, and exact technical text. It includes examples and a review checklist.
+
+### Install
+
+Copy the entire `asd-ste100` folder, including `agents/openai.yaml`, into one of these locations:
+
+- Personal Codex skills: `$CODEX_HOME/skills/asd-ste100`, or `~/.codex/skills/asd-ste100` when `CODEX_HOME` is unset.
+- Project-local skills: `<your-project>/.agents/skills/asd-ste100`.
+
+Choose one location to avoid duplicate entries. Preserve an existing customized version before replacing it. Open a fresh agent session if the installed skill is not yet listed.
+
+### Use
+
+```text
+$asd-ste100 Explain how this service works.
+```
+
+For a rewrite:
+
+```text
+Use $asd-ste100 to rewrite this README with up to 80 percent
+ASD-STE100-inspired English. Preserve the technical details and commands.
+```
+
+The skill applies to the requested output and follow-up revisions of that deliverable. It can work with an artifact skill to guide prose in documents or presentations.
+
+### Behavior and limits
+
+- Code, commands, identifiers, paths, URLs, exact labels, data, and verbatim quotations retain their original text.
+- Accuracy, requested format, and explicit user requirements take priority over the style target.
+- The skill does not claim formal ASD-STE100 compliance or include the full approved dictionary. Its editing suggestions and examples are not certified STE text.
+- It links to the [official ASD-STE100 guidance](https://asd-ste100.org/STE_faq.html) and [standard downloads](https://asd-ste100.org/STE_downloads.html) for authoritative checks.
+- Creating the skill in this repository does not install it or change global writing preferences.
+
+## Repository layout
 
 ```text
 Skills/
 ├── README.md
-└── handoff/
+├── handoff/
+│   ├── SKILL.md
+│   └── agents/
+│       └── openai.yaml
+└── asd-ste100/
     ├── SKILL.md
     └── agents/
         └── openai.yaml

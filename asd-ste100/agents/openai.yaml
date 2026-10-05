@@ -1,0 +1,4 @@
+interface:
+  display_name: "ASD-STE100 Writing"
+  short_description: "Write clear English with an 80 percent STE style"
+  default_prompt: "Use $asd-ste100 to write this output with up to 80 percent ASD-STE100-inspired English while preserving meaning and technical details."
