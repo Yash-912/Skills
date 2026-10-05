@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Write a compact engineering handoff for a fresh agent"
+  default_prompt: "Use $handoff to write or refresh handoff.md with the current engineering state and exact next steps for a fresh agent."
