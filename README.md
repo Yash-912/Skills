@@ -115,6 +115,24 @@ The skill applies to the requested output and follow-up revisions of that delive
 - It links to the [official ASD-STE100 guidance](https://asd-ste100.org/STE_faq.html) and [standard downloads](https://asd-ste100.org/STE_downloads.html) for authoritative checks.
 - Creating the skill in this repository does not install it or change global writing preferences.
 
+## Diff Review Coach
+
+[`diff-review-coach`](diff-review-coach/SKILL.md) coaches you through reviewing AI-generated code with `git diff`. You do the reviewing and explain each change back. The agent holds its own findings until you have answered, then gives feedback on what you caught and missed.
+
+It walks through seven steps: state the intent, triage the file list, read each hunk, climb the understanding ladder, scan a red-flag checklist ([`references/red-flags.md`](diff-review-coach/references/red-flags.md)), run the code, and give a verdict per file.
+
+### Install
+
+Copy the entire `diff-review-coach` folder, including `references/`, into `~/.claude/skills/diff-review-coach` (personal) or `<your-project>/.claude/skills/diff-review-coach` (project-local). Open a fresh session if the skill is not yet listed.
+
+### Use
+
+```text
+/diff-review-coach
+```
+
+Or ask: "Walk me through this diff" or "Quiz me on this change". With no diff to review, it can generate a small practice change with planted flaws.
+
 ## Repository layout
 
 ```text
@@ -124,10 +142,14 @@ Skills/
 │   ├── SKILL.md
 │   └── agents/
 │       └── openai.yaml
-└── asd-ste100/
+├── asd-ste100/
+│   ├── SKILL.md
+│   └── agents/
+│       └── openai.yaml
+└── diff-review-coach/
     ├── SKILL.md
-    └── agents/
-        └── openai.yaml
+    └── references/
+        └── red-flags.md
 ```
 
 `SKILL.md` contains the reusable workflow. `agents/openai.yaml` contains the skill's display name and suggested invocation prompt. The generated project `handoff.md` belongs in the project being handed off, rather than in this skill repository.
